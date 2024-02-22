@@ -20,7 +20,8 @@ fun GameList(
         items(items = games, key = { it.id }) { data ->
             SmallCard(
                 id = data.id.toString(),
-                title = data.title.toString(),
+                title = data.title,
+                thumbnail = data.thumbnail.toString(),
                 releaseDate = data.releaseDate.toString(),
                 navigateToDetail = navigateToDetail
             )

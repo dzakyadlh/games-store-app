@@ -36,11 +36,11 @@ class GamesRepository(
             override fun shouldFetch(data: List<Game>?): Boolean = true
         }.asFlow()
 
-    override suspend fun getGameDetail(id: Int): Flow<Resource<GameDetail>> {
-        remoteDataSource.getGameDetail(id).map {
-
-        }
-    }
+//    override suspend fun getGameDetail(id: Int): Flow<Resource<GameDetail>> {
+//        remoteDataSource.getGameDetail(id).map {
+//
+//        }
+//    }
 
     override fun getFavorite(): Flow<List<Game>> {
         return localDataSource.getAllFavorite().map {

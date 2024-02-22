@@ -4,7 +4,8 @@ import android.app.Application
 import com.dzakyadlh.gamestoreapp.core.di.databaseModule
 import com.dzakyadlh.gamestoreapp.core.di.networkModule
 import com.dzakyadlh.gamestoreapp.core.di.repositoryModule
-import com.dzakyadlh.gamestoreapp.core.di.viewModelModule
+import com.dzakyadlh.gamestoreapp.di.useCaseModule
+import com.dzakyadlh.gamestoreapp.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -21,6 +22,7 @@ class GameStoreApplication : Application() {
                     databaseModule,
                     networkModule,
                     repositoryModule,
+                    useCaseModule,
                     viewModelModule
                 )
             )

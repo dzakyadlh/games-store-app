@@ -20,7 +20,7 @@ interface GamesDao {
     fun getAllFavorite(): Flow<List<GamesEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addGames(games: List<GamesEntity>)
+    suspend fun addGames(games: List<GamesEntity>)
 
     @Update
     fun updateFavorite(game: GamesEntity)

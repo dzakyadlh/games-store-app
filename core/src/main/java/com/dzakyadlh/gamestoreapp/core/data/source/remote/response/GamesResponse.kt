@@ -2,12 +2,6 @@ package com.dzakyadlh.gamestoreapp.core.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class GamesResponse(
-
-    @field:SerializedName("GamesResponse")
-    val gamesResponse: List<GamesResponseItem> = emptyList()
-)
-
 data class GamesResponseItem(
 
     @field:SerializedName("short_description")

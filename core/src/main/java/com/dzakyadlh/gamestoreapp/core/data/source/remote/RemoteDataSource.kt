@@ -16,8 +16,8 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.getGames()
-                if (response.gamesResponse.isNotEmpty()) {
-                    emit(ApiResponse.Success(response.gamesResponse))
+                if (response.isNotEmpty()) {
+                    emit(ApiResponse.Success(response))
                 } else {
                     emit(ApiResponse.Empty)
                 }

@@ -27,13 +27,14 @@ import com.dzakyadlh.gamestoreapp.R
 
 @Composable
 fun SmallCard(
-    id:String,
+    id: String,
     title: String,
     releaseDate: String,
     modifier: Modifier = Modifier,
     thumbnail: String? = null,
     navigateToDetail: (String) -> Unit
 ) {
+    val year = releaseDate.split("-")[0]
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -53,41 +54,42 @@ fun SmallCard(
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.Start,
                 modifier = modifier.fillMaxWidth()
             ) {
-                Column {
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.titleSmall,
-                        modifier = modifier
-                            .padding(start = 16.dp),
-                        textAlign = TextAlign.Center
-                    )
-                    Text(
-                        text = releaseDate,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = modifier.padding(start = 16.dp),
-                        textAlign = TextAlign.Center
-                    )
-                }
                 Box(
                     modifier = modifier
-                        .size(80.dp)
+                        .size(width = 120.dp, height = 80.dp)
                         .clip(
                             RoundedCornerShape(
-                                topStart = 0.dp,
-                                topEnd = 8.dp,
-                                bottomEnd = 8.dp,
-                                bottomStart = 0.dp
+                                topStart = 8.dp,
+                                topEnd = 0.dp,
+                                bottomEnd = 0.dp,
+                                bottomStart = 8.dp
                             )
                         )
                 ) {
                     AsyncImage(
                         model = thumbnail ?: R.drawable.ic_launcher_background,
                         contentDescription = title,
-                        contentScale = ContentScale.Crop,
+                        contentScale = ContentScale.FillHeight,
                         modifier = modifier.fillMaxSize()
+                    )
+                }
+                Column {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = modifier
+                            .padding(start = 8.dp),
+                        textAlign = TextAlign.Center,
+                        maxLines = 1,
+                    )
+                    Text(
+                        text = year,
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = modifier.padding(start = 8.dp),
+                        textAlign = TextAlign.Center
                     )
                 }
             }
