@@ -5,7 +5,6 @@ import com.dzakyadlh.gamestoreapp.core.data.source.remote.RemoteDataSource
 import com.dzakyadlh.gamestoreapp.core.data.source.remote.network.ApiResponse
 import com.dzakyadlh.gamestoreapp.core.data.source.remote.response.GamesResponseItem
 import com.dzakyadlh.gamestoreapp.core.domain.model.Game
-import com.dzakyadlh.gamestoreapp.core.domain.model.GameDetail
 import com.dzakyadlh.gamestoreapp.core.domain.repository.IGamesRepository
 import com.dzakyadlh.gamestoreapp.core.utils.AppExecutors
 import com.dzakyadlh.gamestoreapp.core.utils.DataMapper
@@ -36,11 +35,11 @@ class GamesRepository(
             override fun shouldFetch(data: List<Game>?): Boolean = true
         }.asFlow()
 
-//    override suspend fun getGameDetail(id: Int): Flow<Resource<GameDetail>> {
-//        remoteDataSource.getGameDetail(id).map {
-//
-//        }
-//    }
+    override fun getGameDetail(id: Int): Flow<Game> {
+        return localDataSource.getGameDetail(id).map {
+            DataMapper.mapEntityToDomain(it)
+        }
+    }
 
     override fun getFavorite(): Flow<List<Game>> {
         return localDataSource.getAllFavorite().map {

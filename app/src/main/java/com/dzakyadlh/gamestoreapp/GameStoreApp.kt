@@ -63,10 +63,10 @@ fun GameStoreApp(
             }
             composable(
                 route = Screen.Detail.route,
-                arguments = listOf(navArgument("gameId") { type = NavType.StringType })
+                arguments = listOf(navArgument("gameId") { type = NavType.IntType })
             ) {
-                val gameId = it.arguments?.getString("gameId") ?: -1L
-                DetailScreen(gameId = gameId.toString())
+                val gameId = it.arguments?.getInt("gameId") ?: -1L
+                DetailScreen(gameId = gameId.toInt())
             }
         }
 

@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "Game Store App"
 include(":app")
 include(":core")
+include(":favorite")

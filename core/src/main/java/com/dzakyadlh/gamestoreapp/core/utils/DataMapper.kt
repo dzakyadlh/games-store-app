@@ -42,6 +42,21 @@ object DataMapper {
             )
         }
 
+    fun mapEntityToDomain(input: GamesEntity): Game =
+        Game(
+            id = input.id,
+            title = input.title,
+            thumbnail = input.thumbnail,
+            releaseDate = input.releaseDate.toString(),
+            shortDescription = input.shortDescription.toString(),
+            gameUrl = input.gameUrl.toString(),
+            genre = input.genre.toString(),
+            publisher = input.publisher.toString(),
+            developer = input.developer.toString(),
+            platform = input.platform.toString(),
+            isFavorite = input.isFavorite
+        )
+
     fun mapDomainToEntity(input: Game) = GamesEntity(
         id = input.id,
         title = input.title,
