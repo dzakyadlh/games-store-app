@@ -32,7 +32,7 @@ class GamesRepository(
                 localDataSource.addGames(gamesList)
             }
 
-            override fun shouldFetch(data: List<Game>?): Boolean = true
+            override fun shouldFetch(data: List<Game>?): Boolean = data.isNullOrEmpty()
         }.asFlow()
 
     override fun getGameDetail(id: Int): Flow<Game> {

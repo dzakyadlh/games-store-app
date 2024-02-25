@@ -15,9 +15,20 @@
     <application>
         <activity
             android:name=".FavoriteActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_favorite"
-            android:theme="@style/Theme.GameStoreApp" />
+            android:theme="@style/Theme.GameStoreApp">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="favorite"
+                    android:scheme="gamestoreapp" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

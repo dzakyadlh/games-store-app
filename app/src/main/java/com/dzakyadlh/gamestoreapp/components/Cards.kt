@@ -45,7 +45,7 @@ fun SmallCard(
                 defaultElevation = 6.dp
             ),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant
+                containerColor = MaterialTheme.colorScheme.surface,
             ),
             modifier = modifier
                 .fillMaxWidth()
@@ -79,11 +79,12 @@ fun SmallCard(
                 Column {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.titleSmall,
+                        style = MaterialTheme.typography.headlineSmall,
                         modifier = modifier
                             .padding(start = 8.dp),
                         textAlign = TextAlign.Center,
                         maxLines = 1,
+                        color = MaterialTheme.colorScheme.primary
                     )
                     Text(
                         text = year,
